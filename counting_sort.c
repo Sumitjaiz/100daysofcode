@@ -35,15 +35,26 @@ void main(){
   scanf("%d",&n);
   printf("Enter the max element\n" );
   scanf("%d",&k);
-  int a[n],b[n];
+  if(k<=n){
+    int a[n],b[n];
 
-  for (i = 0; i < n; i++){
-    printf("Enter a[%d] element\n", i+1 );
-    scanf("%d",&a[i] );
-  }
-  printf("Given array is \n");
-    printArray(a, n);
-    CountingSort(a,b,k,n);
-    printf("\nSorted array is \n");
-    printArray(b, n);
+    for (i = 0; i < n; i++){
+      printf("Enter a[%d] element\n", i+1 );
+      scanf("%d",&a[i] );
+      if(a[i]>k){
+        printf("that input is not valid as the max element is %d\n",k );
+        printf("Enter the a[%d] element again \n", i+1 );
+        scanf("%d",&a[i] );
+      }
+    }
+
+    printf("Given array is \n");
+      printArray(a, n);
+      CountingSort(a,b,k,n);
+      printf("\nSorted array is \n");
+      printArray(b, n);
+    }
+    else{
+      printf("Max element can not be greater than the size of array" );
+    }
 }
